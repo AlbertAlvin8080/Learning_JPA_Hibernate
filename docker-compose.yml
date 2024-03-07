@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  db:
+    image: mysql:8.0.36-debian
+    container_name: mysql1
+    restart: always
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: db_hibernate
+      MYSQL_USER: albert
+      MYSQL_PASSWORD: 1234
+    volumes:
+      - ./mysql-data:/var/lib/mysql
+
+# docker-compose up -d --build
+# docker-compose exec -it db bash
+# mysql -proot
